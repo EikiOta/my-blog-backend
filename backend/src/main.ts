@@ -15,6 +15,8 @@ const corsOptions: CorsOptions = {
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   allowedHeaders: 'Content-Type, Accept, Origin', // Origin を追加
   credentials: true, // 認証情報を含むリクエストを許可
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
 };
 
 async function createApp() {
