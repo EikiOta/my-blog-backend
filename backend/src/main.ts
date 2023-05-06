@@ -13,7 +13,8 @@ const server = express();
 const corsOptions: CorsOptions = {
   origin: process.env.BACKEND_ALLOWED_ORIGIN || 'http://localhost:3000',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-  allowedHeaders: 'Content-Type, Accept',
+  allowedHeaders: 'Content-Type, Accept, Origin', // Origin を追加
+  credentials: true, // 認証情報を含むリクエストを許可
 };
 
 async function createApp() {
