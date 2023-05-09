@@ -8,8 +8,7 @@
   ],
   "functions": {
     "api/search": {
-      "runtime": "nodejs16@1.0.0",
-      "handler": "handler"
+      "runtime": "nodejs18.x"
     }
   }
 }
