@@ -24,8 +24,8 @@ async function createApp() {
   return app;
 }
 
-export default async (req: express.Request, res: express.Response) => {
+export const handler = async (req: express.Request, res: express.Response) => {
   const app = await createApp();
-  app.init();
+  await app.init();
   server(req, res);
 };
