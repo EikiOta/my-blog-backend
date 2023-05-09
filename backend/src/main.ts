@@ -1,12 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ExpressAdapter } from '@nestjs/platform-express';
-import express from 'express';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-const server = express();
+const server = require('express')();
 
 async function createApp() {
   const app = await NestFactory.create(AppModule, new ExpressAdapter(server));
@@ -24,7 +23,7 @@ async function createApp() {
   return app;
 }
 
-export const handler = async (req: express.Request, res: express.Response) => {
+export const handler = async (req, res) => {
   const app = await createApp();
   await app.init();
   server(req, res);
